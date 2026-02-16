@@ -19,7 +19,7 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql+asyncpg://cashbox:cashbox@db:5432/cashbox
-      JWT_SECRET: change-me
+      JWT_SECRET: ${JWT_SECRET}
       REFRESH_TOKEN_EXPIRE_DAYS: 30
     ports:
       - "8000:8000"
