@@ -123,8 +123,8 @@ async def _export_transactions_csv(session, job: Job, jobs_dir: str) -> None:
     offset = 0
 
     with open(path, "w", newline="", encoding="utf-8") as f:
+        f.write("\ufeff")  # BOM для Excel
         writer = csv.writer(f)
-        writer.writerow(["id", "timestamp", "type", "currency", "amount", "rate", "client_id", "comment", "created_by"])
 
         while True:
             q = (
