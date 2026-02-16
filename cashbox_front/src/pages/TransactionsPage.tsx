@@ -118,9 +118,10 @@ export default function TransactionsPage(): JSX.Element {
           const url = window.URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = `экспорт_${new Date()
+          a.download = `export_${new Date()
             .toISOString()
-            .slice(0, 10)}.xlsx`;
+            .replace(/[:]/g, "-")
+            .slice(0, 19)}.csv`;
           document.body.appendChild(a);
           a.click();
           a.remove();
